@@ -1,0 +1,31 @@
+@import "../../../../variables";
+:host
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    border-bottom: 3px ridge black
+a h2
+    padding: boxPadding
+.details
+    li
+        background-color: boxBColor
+        margin-bottom: 1rem
+        display: inline-block
+        span
+            padding: boxPadding
+            font-weight: bold
+            background-color: boxBColor
+        span:nth-child(2n+1)
+            background-color: boxAColor
+.desc-text
+    display: flex !important
+.btn-open-issues
+    border-radius: radiusPrimary
+    color: textPrimaryColor
+    margin: .4rem 0
+    font-weight: bold
+    padding: boxPadding
+    background-color: rgb(190, 49, 25)
+    outline: none;
+.btn-open-issues.no-issues
+    background-color: green

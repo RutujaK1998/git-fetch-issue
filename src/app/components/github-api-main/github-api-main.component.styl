@@ -1,0 +1,44 @@
+@import "../../../variables.styl";
+:host
+    background-color: backgroundPrimaryColor
+    display: block
+    padding: 1rem
+header
+    display: flex
+    align-items: center
+    @media (max-width:30rem) {
+        flex-direction: column
+    }
+    .messages
+        margin: .8rem
+        width: 100%
+        display: flex;
+        justify-content: center
+        color: warningColor
+        font-weight: bold
+        font-size: 110%
+    label
+        display: block
+        margin: 5px 0
+        input[type="text"]
+            width: 17rem
+        input[type="number"]
+            width: 8rem
+        input
+            width: 100%
+            max-width: 34rem
+            margin-bottom: 1rem
+            padding: .4rem .2rem
+            background-color: rgb(236, 241, 234)
+            border-radius: radiusPrimary
+            font-weight: bold
+            letter-spacing: .15rem
+            outline: none
+        input:focus
+            background-color: rgb(188, 200, 198)
+        .repo-count
+            font-weight: bold
+section
+    border-top: 3px ridge black
+    .no-repo
+        text-align: center

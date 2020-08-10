@@ -1,0 +1,40 @@
+<header>
+    
+    <div class="labels">
+        <label>
+            Repository:<br>
+            <input [formControl]="repository" type="text" placeholder="Search repo by name...">
+        </label>
+        <label>
+            Username:<br>
+            <input [formControl]="username" type="text" placeholder="Search repo by author...">
+        </label>
+        <label>
+            Page:<br>
+            <input type="number" [formControl]="pageNumber" min="1" placeholder="Default:1">
+            out of
+            <span class="repo-count">{{repoTotalCount | ghpageCount}}</span>
+        </label>
+    </div>
+    <div class="messages">
+        <div *ngIf="waiting"><i>waiting...</i></div>
+    </div>
+</header>
+<section>
+    <div *ngIf="repositories?.length; then repositoryList else noRepositories"></div>
+    <ng-template #noRepositories>
+        <h2 class="no-repo">No repositories found</h2>
+    </ng-template>
+    <ng-template #repositoryList>
+        <ul>
+            <li *ngFor="let repo of repositories">
+                <github-repo
+                    [repo]="repo"
+                    [repoID]="repoID"
+                    [searchOpenedIssues]="searchOpenedIssues.bind(this)">
+                </github-repo>
+            </li>
+        </ul>
+    </ng-template>
+</section>
+<problemo [error]="error"></problemo>
